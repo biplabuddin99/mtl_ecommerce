@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\frontend;
 
-use App\Models\Ecom_help;
+use App\Http\Controllers\Controller;
+
+use App\Models\frontend\Ecom_help;
 use Illuminate\Http\Request;
 
 class EcomHelpController extends Controller
