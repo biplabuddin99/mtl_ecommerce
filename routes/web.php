@@ -15,6 +15,6 @@ use App\Http\Controllers\FrontendController;
 */
 Route::resource('frontend',FrontendController::class);
 
-// Route::get('/', function () {
-//     return view('fontend.home');
-// });
+Route::get('/', function () {
+    return view('backend.dashboard');
+});
