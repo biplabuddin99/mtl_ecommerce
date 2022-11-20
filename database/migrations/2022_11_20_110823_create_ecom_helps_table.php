@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('ecom_helps', function (Blueprint $table) {
             $table->id();
+            $table->string('icon');
+            $table->string('title');
+            $table->text('link');
             $table->timestamps();
         });
     }
