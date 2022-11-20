@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\frontend;
 
-use App\Models\Frontend;
+use App\Http\Controllers\Controller;
+
+use App\Models\frontend\Ecom_partner;
+
 use Illuminate\Http\Request;
 
-class FrontendController extends Controller
+class EcomPartnerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +17,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('frontend.home');
+        //
     }
 
     /**
@@ -41,10 +44,10 @@ class FrontendController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Frontend  $frontend
+     * @param  \App\Models\Ecom_partner  $ecom_partner
      * @return \Illuminate\Http\Response
      */
-    public function show(Frontend $frontend)
+    public function show(Ecom_partner $ecom_partner)
     {
         //
     }
@@ -52,10 +55,10 @@ class FrontendController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Frontend  $frontend
+     * @param  \App\Models\Ecom_partner  $ecom_partner
      * @return \Illuminate\Http\Response
      */
-    public function edit(Frontend $frontend)
+    public function edit(Ecom_partner $ecom_partner)
     {
         //
     }
@@ -64,10 +67,10 @@ class FrontendController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Frontend  $frontend
+     * @param  \App\Models\Ecom_partner  $ecom_partner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Frontend $frontend)
+    public function update(Request $request, Ecom_partner $ecom_partner)
     {
         //
     }
@@ -75,10 +78,10 @@ class FrontendController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Frontend  $frontend
+     * @param  \App\Models\Ecom_partner  $ecom_partner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Frontend $frontend)
+    public function destroy(Ecom_partner $ecom_partner)
     {
         //
     }
