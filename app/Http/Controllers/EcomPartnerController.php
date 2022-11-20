@@ -15,7 +15,8 @@ class EcomPartnerController extends Controller
      */
     public function index()
     {
-        //
+        $partner = Ecom_partner::all();
+        return view('partner.index',compact('partner'));
     }
 
     /**
