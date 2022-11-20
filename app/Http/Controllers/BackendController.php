@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\backend\Backend;
+use App\Models\Backend;
 use Illuminate\Http\Request;
 
 class BackendController extends Controller

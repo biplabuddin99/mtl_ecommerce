@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\frontend;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Ecom_partner;
 
-use App\Models\frontend\Ecom_help;
 use Illuminate\Http\Request;
 
-class EcomHelpController extends Controller
+class EcomPartnerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -43,10 +42,10 @@ class EcomHelpController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Ecom_help  $ecom_help
+     * @param  \App\Models\Ecom_partner  $ecom_partner
      * @return \Illuminate\Http\Response
      */
-    public function show(Ecom_help $ecom_help)
+    public function show(Ecom_partner $ecom_partner)
     {
         //
     }
@@ -54,10 +53,10 @@ class EcomHelpController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Ecom_help  $ecom_help
+     * @param  \App\Models\Ecom_partner  $ecom_partner
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ecom_help $ecom_help)
+    public function edit(Ecom_partner $ecom_partner)
     {
         //
     }
@@ -66,10 +65,10 @@ class EcomHelpController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ecom_help  $ecom_help
+     * @param  \App\Models\Ecom_partner  $ecom_partner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ecom_help $ecom_help)
+    public function update(Request $request, Ecom_partner $ecom_partner)
     {
         //
     }
@@ -77,10 +76,10 @@ class EcomHelpController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Ecom_help  $ecom_help
+     * @param  \App\Models\Ecom_partner  $ecom_partner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ecom_help $ecom_help)
+    public function destroy(Ecom_partner $ecom_partner)
     {
         //
     }

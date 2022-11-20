@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\frontend\FrontendController;
-use App\Http\Controllers\backend\BackendController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\BackendController;
 
 /*
 |--------------------------------------------------------------------------

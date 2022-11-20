@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Models\frontend;
+namespace App\Models;
+
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ecom_help extends Model
+class Backend extends Model
 {
     use HasFactory;
 }

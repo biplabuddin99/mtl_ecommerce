@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\frontend;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 
-use App\Models\frontend\Frontend;
+use App\Models\Ecom_help;
 use Illuminate\Http\Request;
 
-class FrontendController extends Controller
+class EcomHelpController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('frontend.home');
+        //
     }
 
     /**
@@ -43,10 +42,10 @@ class FrontendController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Frontend  $frontend
+     * @param  \App\Models\Ecom_help  $ecom_help
      * @return \Illuminate\Http\Response
      */
-    public function show(Frontend $frontend)
+    public function show(Ecom_help $ecom_help)
     {
         //
     }
@@ -54,10 +53,10 @@ class FrontendController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Frontend  $frontend
+     * @param  \App\Models\Ecom_help  $ecom_help
      * @return \Illuminate\Http\Response
      */
-    public function edit(Frontend $frontend)
+    public function edit(Ecom_help $ecom_help)
     {
         //
     }
@@ -66,10 +65,10 @@ class FrontendController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Frontend  $frontend
+     * @param  \App\Models\Ecom_help  $ecom_help
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Frontend $frontend)
+    public function update(Request $request, Ecom_help $ecom_help)
     {
         //
     }
@@ -77,10 +76,10 @@ class FrontendController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Frontend  $frontend
+     * @param  \App\Models\Ecom_help  $ecom_help
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Frontend $frontend)
+    public function destroy(Ecom_help $ecom_help)
     {
         //
     }
