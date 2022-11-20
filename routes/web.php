@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\backend\BackendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,8 @@ use App\Http\Controllers\FrontendController;
 |
 */
 Route::resource('frontend',FrontendController::class);
+Route::resource('backend',BackendController::class);
 
-Route::get('/', function () {
-    return view('backend.dashboard');
-});
+// Route::get('/', function () {
+//     return view('backend.dashboard');
+// });
