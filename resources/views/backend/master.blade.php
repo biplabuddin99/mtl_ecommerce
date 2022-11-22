@@ -149,6 +149,8 @@
               <ul class="menu-sub">
                 <li class="menu-item"><a class="menu-link" href="{{route('partner.index')}}">List</a></li>
                 <li class="menu-item"><a class="menu-link" href="{{route('partner.create')}}">Add New</a></li>
+                <li class="menu-item"><a class="menu-link" href="{{route('ecom_help.index')}}">help</a></li>
+                <li class="menu-item"><a class="menu-link" href="{{route('ecom_help.create')}}">Add help</a></li>
               </ul>
             </li>
 

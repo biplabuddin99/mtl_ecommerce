@@ -5,6 +5,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\EcomHelpController;
 use App\Http\Controllers\EcomPartnerController;
+use App\Http\Controllers\EcomSliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ use App\Http\Controllers\EcomPartnerController;
 Route::resource('frontend',FrontendController::class);
 Route::resource('backend',BackendController::class);
 Route::resource('ecom_help',EcomHelpController::class);
+Route::resource('ecomSlider',EcomSliderController::class);
 Route::resource('partner',EcomPartnerController::class);
 
 // Route::get('/', function () {
