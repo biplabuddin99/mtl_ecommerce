@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ecom_partner;
 
 use Illuminate\Http\Request;
+use Exception;
 
 class EcomPartnerController extends Controller
 {
@@ -15,7 +16,8 @@ class EcomPartnerController extends Controller
      */
     public function index()
     {
-        //
+        $partner = Ecom_partner::all();
+        return view('backend.partner.index',compact('partner'));
     }
 
     /**
@@ -25,7 +27,7 @@ class EcomPartnerController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.partner.create');
     }
 
     /**
@@ -36,7 +38,23 @@ class EcomPartnerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $partner= new Ecom_partner;
+            $partner->title=$request->title;
+            $partner->link=$request->link;
+            if($request->has('image'))
+                $imageName = rand(111,999).time().'.'.$request->image->extension();
+                $request->image->move(public_path('uploads/plogo'), $imageName);
+                $partner->logo=$imageName;
+
+            if($partner->save())
+                return redirect()->route('partner.index');
+            else
+            return redirect()->route('partner.create');
+        }catch(Exception $e){
+            dd($e);
+            return redirect()->route('partner.create');
+        }
     }
 
     /**
@@ -56,9 +74,10 @@ class EcomPartnerController extends Controller
      * @param  \App\Models\Ecom_partner  $ecom_partner
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ecom_partner $ecom_partner)
+    public function edit($id)
     {
-        //
+        $partner = Ecom_partner::findOrFail($id);
+        return view('backend.partner.edit',compact('partner'));
     }
 
     /**
@@ -68,9 +87,25 @@ class EcomPartnerController extends Controller
      * @param  \App\Models\Ecom_partner  $ecom_partner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ecom_partner $ecom_partner)
+    public function update(Request $request, $id)
     {
-        //
+        try{
+            $partner= Ecom_partner::findOrFail($id);
+            $partner->title=$request->title;
+            $partner->link=$request->link;
+            if($request->has('image'))
+                $imageName = rand(111,999).time().'.'.$request->image->extension();
+                $request->image->move(public_path('uploads/plogo'), $imageName);
+                $partner->logo=$imageName;
+
+            if($partner->save())
+                return redirect()->route('partner.index');
+            else
+            return redirect()->route('partner.edit');
+        }catch(Exception $e){
+            dd($e);
+            return redirect()->route('partner.edit');
+        }
     }
 
     /**
@@ -79,8 +114,10 @@ class EcomPartnerController extends Controller
      * @param  \App\Models\Ecom_partner  $ecom_partner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ecom_partner $ecom_partner)
+    public function destroy($id)
     {
-        //
+        $partner = Ecom_partner::findOrFail($id);
+        $partner->delete();
+        return redirect()->back();
     }
 }
