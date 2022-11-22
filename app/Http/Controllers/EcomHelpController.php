@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Ecom_help;
+use Exception;
 use Illuminate\Http\Request;
 
 class EcomHelpController extends Controller
@@ -15,7 +16,8 @@ class EcomHelpController extends Controller
      */
     public function index()
     {
-        return view('backend.ecomHelps.index');
+        $helps=Ecom_help::all();
+        return view('backend.ecomHelps.index',compact('helps'));
     }
 
     /**
@@ -25,7 +27,7 @@ class EcomHelpController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.ecomHelps.create');
     }
 
     /**
@@ -36,8 +38,24 @@ class EcomHelpController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        try{
+            // dd($request);
+            $helps=new Ecom_help;
+            if($request->hasFile('inputicon')){
+                $imageName = rand(111,999).time().'.'.$request->inputicon->extension();
+                $request->inputicon->move(public_path('uploads/icon'), $imageName);
+                $helps->icon=$imageName;
+            }
+            $helps->title=$request->inputtitle;
+            $helps->link=$request->inputlink;
+            $helps->save();
+            return redirect(route('ecom_help.index'));
+        }catch(Exception $e){
+            dd($e);
+            return back()->withInput();
+        }
+
+        }
 
     /**
      * Display the specified resource.
