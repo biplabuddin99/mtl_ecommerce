@@ -17,7 +17,7 @@ use App\Http\Controllers\EcomHelpController;
 */
 Route::resource('frontend',FrontendController::class);
 Route::resource('backend',BackendController::class);
-Route::resource('ecom_help',EcomHelpController::class);
+
 
 // Route::get('/', function () {
 //     return view('backend.dashboard');
