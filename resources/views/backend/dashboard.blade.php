@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('contend')
+@section('content')
 
           <!-- Content wrapper -->
           <div class="content-wrapper">

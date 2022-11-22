@@ -15,7 +15,7 @@ class EcomHelpController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.ecomHelps.index');
     }
 
     /**

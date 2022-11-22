@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\BackendController;
+use App\Http\Controllers\EcomHelpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use App\Http\Controllers\BackendController;
 */
 Route::resource('frontend',FrontendController::class);
 Route::resource('backend',BackendController::class);
+Route::resource('ecom_help',EcomHelpController::class);
 
 // Route::get('/', function () {
 //     return view('backend.dashboard');
