@@ -8,23 +8,25 @@
       <div class="col-8 offset-2">
         <div class="card mb-4">
           <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Create Help</h5>
+            <h5 class="mb-0">Edit Help</h5>
           </div>
           <div class="card-body">
-            <form action="{{route('ecom_help.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('ecom_help.update',$ecom_help->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('post')
+                @method('patch')
               <div class="mb-3">
                 <label class="form-label" for="inputicon">Icon</label>
-                <input type="file" class="form-control" id="inputicon" name="inputicon" value="{{ old('inputicon') }}" />
+                <img width="100px" class="float-end" src="{{ asset('uploads/icon/'.$ecom_help->icon) }}" alt="">
+                <input type="hidden" class="form-control" id="inputicon" name="inputicon" value="{{ $ecom_help->icon }}"/>
+                <input type="file" class="form-control" id="inputicon" name="inputicon" value="{{ $ecom_help->icon }}"/>
               </div>
               <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="inputtitle" value="{{ old('inputtitle') }}" />
+                <input type="text" class="form-control" id="title" name="inputtitle" value="{{ old('inputicon',$ecom_help->title) }}"/>
               </div>
               <div class="mb-3">
                 <label class="form-label" for="link">Link</label>
-                <input type="text" class="form-control" id="link" name="inputlink" value="{{ old('inputlink') }}" />
+                <input type="text" class="form-control" id="link" name="inputlink" value="{{ old('inputicon',$ecom_help->link) }}"/>
               </div>
               <button type="submit" class="btn btn-primary">Save</button>
             </form>
@@ -33,6 +35,5 @@
       </div>
     </div>
   </div>
-  {{-- <link rel="stylesheet" href="{{ asset('bassets/css/dropify.min.css') }}" />
-  <link rel="stylesheet" href="{{ asset('bassets/css/dropify.min.js') }}" /> --}}
+
   @endsection

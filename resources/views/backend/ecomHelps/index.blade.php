@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('content')
               <!-- Bootstrap Table with Header - Dark -->
-              <div class="card">
+              <div class="card m-5 p-5">
                 <h5 class="card-header">Dark Table head</h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table">
@@ -18,15 +18,18 @@
                         @forelse ($helps as $help)
                         <tr>
                             <th scope="row">{{ ++$loop->index }}</th>
-                            <td>{{ $help->icon }}</td>
+                            <td>
+                                @if($help->icon == '')
+                                    <i class="fa fa-user-md" style="font-size:50px;"></i>
+                                @else
+                                    <img src="{{ asset('uploads/icon/'.$help->icon)}}" height="50" width="50" alt="no image" />
+                                @endif
+                            </td>
                             <td>{{ $help->title }}</td>
                             <td>{{ $help->link }}</td>
 
                             <td class="d-flex">
-                                <a href="{{ route('ecom_help.edit',$help->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                {{-- <a href="javascript:void()" onclick="$('#form{{$help->id}}').submit()">
-                                    <i class="fa fa-trash"></i>
-                                </a> --}}
+                                <a href="{{ route('ecom_help.edit',$help->id) }}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
                                 <form id="form{{$help->id}}" action="{{ route('ecom_help.destroy',$help->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
