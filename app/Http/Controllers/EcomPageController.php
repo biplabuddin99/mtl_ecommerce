@@ -47,19 +47,19 @@ class EcomPageController extends Controller
                 'alert-type' => 'error'
             );
             $pages= new Ecom_page;
-            $pages->title->$request->title;
-            $pages->description->$request->des;
-            $pages->slug->$request->slug;
-            $pages->menu_location->$request->menuLocation;
-            $pages->order_menu->$request->orderMenu;
+            $pages->title =$request->title;
+            $pages->description =$request->des;
+            $pages->slug =$request->slug;
+            $pages->menu_location =$request->menuLocation;
+            $pages->order_menu =$request->orderMenu;
 
             if($pages->save())
-                return redirect()->route('page.index')->with($notification);
+                return redirect()->route('ecom_page.index')->with($notification);
             else
-            return redirect()->route('page.create')->with($errornotification);
+            return redirect()->route('ecom_page.create')->with($errornotification);
         }catch(Exception $e){
             dd($e);
-            return redirect()->route('page.create')->with($errornotification);
+            return redirect()->route('ecom_page.create')->with($errornotification);
         }
     }
 
@@ -82,7 +82,7 @@ class EcomPageController extends Controller
      */
     public function edit(Ecom_page $ecom_page)
     {
-        return view('backend.page.create',compact('ecom_page'));
+        return view('backend.page.edit',compact('ecom_page'));
     }
 
     /**
@@ -104,19 +104,19 @@ class EcomPageController extends Controller
                 'alert-type' => 'error'
             );
             $pages= $ecom_page;
-            $pages->title->$request->title;
-            $pages->description->$request->des;
-            $pages->slug->$request->slug;
-            $pages->menu_location->$request->menuLocation;
-            $pages->order_menu->$request->orderMenu;
+            $pages->title =$request->title;
+            $pages->description =$request->des;
+            $pages->slug =$request->slug;
+            $pages->menu_location =$request->menuLocation;
+            $pages->order_menu =$request->orderMenu;
 
             if($pages->save())
-                return redirect()->route('page.index')->with($notification);
+                return redirect()->route('ecom_page.index')->with($notification);
             else
-            return redirect()->route('page.create')->with($errornotification);
+            return redirect()->route('ecom_page.create')->with($errornotification);
         }catch(Exception $e){
             dd($e);
-            return redirect()->route('page.create')->with($errornotification);
+            return redirect()->route('ecom_page.create')->with($errornotification);
         }
     }
 

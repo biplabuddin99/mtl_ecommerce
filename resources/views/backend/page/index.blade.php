@@ -12,6 +12,7 @@
                         <th class="text-white">Description</th>
                         <th class="text-white">Slug</th>
                         <th class="text-white">Menu Location</th>
+                        <th class="text-white">Order Menu</th>
                         <th class="text-white">Actions</th>
                     </tr>
                 </thead>
@@ -25,7 +26,7 @@
                         <td>{{$p->menu_location}}</td>
                         <td>{{$p->order_menu}}</td>
                         <td class="white-space-nowrap">
-                            <a class="btn btn-sm btn-primary" href="{{route('page.edit',$p->id)}}">Edit</a>
+                            <a class="btn btn-sm btn-primary" href="{{route('ecom_page.edit',$p->id)}}">Edit</a>
                         </td>
                     </tr>
                     @empty
