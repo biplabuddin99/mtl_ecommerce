@@ -152,15 +152,10 @@
 
               <ul class="menu-sub">
                 <li class="menu-item"><a class="menu-link" href="{{route('partner.index')}}">Partner</a></li>
-                <li class="menu-item"><a class="menu-link" href="{{route('partner.create')}}">Add New</a></li>
                 <li class="menu-item"><a class="menu-link" href="{{route('ecom_page.index')}}">Page</a></li>
-                <li class="menu-item"><a class="menu-link" href="{{route('ecom_page.create')}}">Add New</a></li>
                 <li class="menu-item"><a class="menu-link" href="{{route('ecom_help.index')}}">Help</a></li>
-                <li class="menu-item"><a class="menu-link" href="{{route('ecom_help.create')}}">Add help</a></li>
                 <li class="menu-item"><a class="menu-link" href="{{route('ecomSlider.index')}}">slider</a></li>
-                <li class="menu-item"><a class="menu-link" href="{{route('ecomSlider.create')}}">Add slider</a></li>
                 <li class="menu-item"><a class="menu-link" href="{{route('ecomAdd.index')}}">advertisement</a></li>
-                <li class="menu-item"><a class="menu-link" href="{{route('ecomAdd.create')}}">Add advertisement</a></li>
               </ul>
             </li>
           </ul>
