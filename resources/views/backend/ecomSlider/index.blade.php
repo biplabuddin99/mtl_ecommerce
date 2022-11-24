@@ -16,22 +16,23 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @forelse ($slider as $help)
+                        @forelse ($slider as $slide)
                         <tr>
                             <th scope="row">{{ ++$loop->index }}</th>
+                            <td>{{ $slide->title }}</td>
+                            <td>{{ $slide->description }}</td>
+                            <td>{{ $slide->link }}</td>
                             <td>
-                                @if($help->icon == '')
+                                @if($slide->image == '')
                                     <i class="fa fa-user-md" style="font-size:50px;"></i>
                                 @else
-                                    <img src="{{ asset('uploads/icon/'.$help->icon)}}" height="50" width="50" alt="no image" />
+                                    <img src="{{ asset('uploads/sliderimage/'.$slide->image)}}" height="50" width="50" alt="no image" />
                                 @endif
                             </td>
-                            <td>{{ $help->title }}</td>
-                            <td>{{ $help->link }}</td>
 
                             <td class="d-flex">
-                                <a href="{{ route('ecom_help.edit',$help->id) }}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                <form id="form{{$help->id}}" action="{{ route('ecom_help.destroy',$help->id) }}" method="POST">
+                                <a href="{{ route('ecomSlider.edit',$slide->id) }}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                <form id="form{{$slide->id}}" action="{{ route('ecomSlider.destroy',$slide->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button class="btn p-0" type="submit" onclick="return confirm('are You confirm?')"><i class='bi bi-trash-fill' style='color:red'></i></a></button>

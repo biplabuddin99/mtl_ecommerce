@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EcomSlider;
+use App\Models\EcomAdd;
 use Illuminate\Http\Request;
 use Exception;
 
-class EcomSliderController extends Controller
+class EcomAddController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class EcomSliderController extends Controller
      */
     public function index()
     {
-        $slider=EcomSlider::all();
-        return view('backend.ecomSlider.index',compact('slider'));
+        $add=EcomAdd::all();
+        return view('backend.ecomadd.index',compact('add'));
     }
 
     /**
@@ -26,7 +26,7 @@ class EcomSliderController extends Controller
      */
     public function create()
     {
-        return view('backend.ecomSlider.create');
+        return view('backend.ecomadd.create');
     }
 
     /**
@@ -46,17 +46,18 @@ class EcomSliderController extends Controller
                 'message' => 'Please try again',
                 'alert-type' => 'error'
             );
-            $slider=new EcomSlider;
+            $slider=new EcomAdd;
             if($request->hasFile('inputpicture')){
                 $imageName = rand(111,999).time().'.'.$request->inputpicture->extension();
-                $request->inputpicture->move(public_path('uploads/sliderimage'), $imageName);
+                $request->inputpicture->move(public_path('uploads/addimage'), $imageName);
                 $slider->image=$imageName;
             }
             $slider->title=$request->inputtitle;
             $slider->description=$request->inputdescription;
             $slider->link=$request->inputlink;
+            $slider->location=$request->inputlocation;
             $slider->save();
-            return redirect(route('ecomSlider.index'))->with($notification);
+            return redirect(route('ecomAdd.index'))->with($notification);
         }catch(Exception $e){
             dd($e);
             return back()->withInput()->with($errornotification);
@@ -66,10 +67,10 @@ class EcomSliderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\EcomSlider  $ecomSlider
+     * @param  \App\Models\EcomAdd  $ecomAdd
      * @return \Illuminate\Http\Response
      */
-    public function show(EcomSlider $ecomSlider)
+    public function show(EcomAdd $ecomAdd)
     {
         //
     }
@@ -77,43 +78,44 @@ class EcomSliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\EcomSlider  $ecomSlider
+     * @param  \App\Models\EcomAdd  $ecomAdd
      * @return \Illuminate\Http\Response
      */
-    public function edit(EcomSlider $ecomSlider)
+    public function edit(EcomAdd $ecomAdd)
     {
-        return view('backend.ecomSlider.edite',compact('ecomSlider'));
+        return view('backend.ecomadd.edit',compact('ecomAdd'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\EcomSlider  $ecomSlider
+     * @param  \App\Models\EcomAdd  $ecomAdd
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EcomSlider $ecomSlider)
+    public function update(Request $request, EcomAdd $ecomAdd)
     {
         try{
             $notification = array(
-                'message' => 'Successfully Update',
+                'message' => 'Successfully update',
                 'alert-type' => 'success'
             );
             $errornotification = array(
                 'message' => 'Please try again',
                 'alert-type' => 'error'
             );
-            $slider=$ecomSlider;
+            $slider=$ecomAdd;
             if($request->hasFile('inputpicture')){
                 $imageName = rand(111,999).time().'.'.$request->inputpicture->extension();
-                $request->inputpicture->move(public_path('uploads/sliderimage'), $imageName);
+                $request->inputpicture->move(public_path('uploads/addimage'), $imageName);
                 $slider->image=$imageName;
             }
             $slider->title=$request->inputtitle;
             $slider->description=$request->inputdescription;
             $slider->link=$request->inputlink;
+            $slider->location=$request->inputlocation;
             $slider->save();
-            return redirect(route('ecomSlider.index'))->with($notification);
+            return redirect(route('ecomAdd.index'))->with($notification);
         }catch(Exception $e){
             dd($e);
             return back()->withInput()->with($errornotification);
@@ -123,12 +125,11 @@ class EcomSliderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\EcomSlider  $ecomSlider
+     * @param  \App\Models\EcomAdd  $ecomAdd
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EcomSlider $ecomSlider)
+    public function destroy(EcomAdd $ecomAdd)
     {
-        $ecomSlider->delete();
-        return back();
+        //
     }
 }

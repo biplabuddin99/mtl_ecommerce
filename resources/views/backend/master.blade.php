@@ -157,6 +157,10 @@
                 <li class="menu-item"><a class="menu-link" href="{{route('ecom_page.create')}}">Add New</a></li>
                 <li class="menu-item"><a class="menu-link" href="{{route('ecom_help.index')}}">Help</a></li>
                 <li class="menu-item"><a class="menu-link" href="{{route('ecom_help.create')}}">Add help</a></li>
+                <li class="menu-item"><a class="menu-link" href="{{route('ecomSlider.index')}}">slider</a></li>
+                <li class="menu-item"><a class="menu-link" href="{{route('ecomSlider.create')}}">Add slider</a></li>
+                <li class="menu-item"><a class="menu-link" href="{{route('ecomAdd.index')}}">advertisement</a></li>
+                <li class="menu-item"><a class="menu-link" href="{{route('ecomAdd.create')}}">Add advertisement</a></li>
               </ul>
             </li>
           </ul>
@@ -317,15 +321,6 @@
     </div>
     <!-- / Layout wrapper -->
 
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div>
-
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="{{ asset('bassets/vendor/libs/jquery/jquery.js') }}"></script>
@@ -370,9 +365,9 @@
 
     case 'error':
     toastr.error(" {{ Session::get('message') }} ");
-    break; 
+    break;
  }
- @endif 
+ @endif
 </script>
 
   <!-- toster cdn script -->

@@ -11,7 +11,7 @@
             <h5 class="mb-0">Create slider</h5>
           </div>
           <div class="card-body">
-            <form action="{{route('ecomSlider.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('ecomAdd.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('post')
               <div class="mb-3">
@@ -27,6 +27,10 @@
                 <input type="text" class="form-control" id="link" name="inputlink" value="{{ old('inputlink') }}" />
               </div>
               <div class="mb-3">
+                <label class="form-label" for="location">Location</label>
+                <input type="text" class="form-control" id="location" name="inputlocation" value="{{ old('inputlocation') }}" />
+              </div>
+              <div class="mb-3">
                 <label class="form-label" for="inputpicture">Picture</label>
                 <input type="file" class="form-control" id="inputpicture" name="inputpicture" value="{{ old('inputpicture') }}" />
               </div>
@@ -40,8 +44,8 @@
   {{-- <link rel="stylesheet" href="{{ asset('bassets/css/dropify.min.css') }}" />
   <link rel="stylesheet" href="{{ asset('bassets/css/dropify.min.js') }}" /> --}}
 
-  {{-- <!-- CK Editor -->
-<script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+  <!-- CK Editor -->
+{{-- <script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
 <!-- Page script -->
 <script>
     CKEDITOR.replace( 'description' );

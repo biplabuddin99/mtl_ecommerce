@@ -7,6 +7,7 @@ use App\Http\Controllers\EcomHelpController;
 use App\Http\Controllers\EcomPartnerController;
 use App\Http\Controllers\EcomSliderController;
 use App\Http\Controllers\EcomPageController;
+use App\Http\Controllers\EcomAddController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::resource('ecom_help',EcomHelpController::class);
 Route::resource('ecomSlider',EcomSliderController::class);
 Route::resource('partner',EcomPartnerController::class);
 Route::resource('ecom_page',EcomPageController::class);
+Route::resource('ecomAdd',EcomAddController::class);
 
 // Route::get('/', function () {
 //     return view('backend.dashboard');

@@ -11,23 +11,29 @@
             <h5 class="mb-0">Create slider</h5>
           </div>
           <div class="card-body">
-            <form action="{{route('ecomSlider.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('ecomAdd.update',$ecomAdd->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('post')
+                @method('patch')
               <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="inputtitle" value="{{ old('inputtitle') }}" />
+                <input type="text" class="form-control" id="title" name="inputtitle" value="{{ old('inputtitle',$ecomAdd->title) }}" />
               </div>
               <div class="mb-3">
                 <label class="form-label" for="description">Description:</label>
-                <input type="text" class="form-control" id="description" name="inputdescription" value="{{ old('inputdescription') }}" />
+                <input type="text" class="form-control" id="description" name="inputdescription" value="{{ old('inputdescription',$ecomAdd->description) }}" />
               </div>
               <div class="mb-3">
                 <label class="form-label" for="link">Link</label>
-                <input type="text" class="form-control" id="link" name="inputlink" value="{{ old('inputlink') }}" />
+                <input type="text" class="form-control" id="link" name="inputlink" value="{{ old('inputlink',$ecomAdd->link) }}" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="location">Location</label>
+                <input type="text" class="form-control" id="location" name="inputlocation" value="{{ old('inputlocation',$ecomAdd->location) }}" />
               </div>
               <div class="mb-3">
                 <label class="form-label" for="inputpicture">Picture</label>
+                <img width="100px" class="float-end" src="{{ asset('uploads/addimage/'.$ecomAdd->image) }}" alt="">
+                <input type="hidden" class="form-control" id="inputpicture" name="inputpicture" value="{{ $ecomAdd->image }}" />
                 <input type="file" class="form-control" id="inputpicture" name="inputpicture" value="{{ old('inputpicture') }}" />
               </div>
               <button type="submit" class="btn btn-primary">Save</button>
@@ -40,8 +46,8 @@
   {{-- <link rel="stylesheet" href="{{ asset('bassets/css/dropify.min.css') }}" />
   <link rel="stylesheet" href="{{ asset('bassets/css/dropify.min.js') }}" /> --}}
 
-  {{-- <!-- CK Editor -->
-<script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+  <!-- CK Editor -->
+{{-- <script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
 <!-- Page script -->
 <script>
     CKEDITOR.replace( 'description' );
