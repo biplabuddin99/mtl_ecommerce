@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class EcomAdd extends Model
 {
     use HasFactory;
+
+    protected $table = 'ecom_adds';
 }

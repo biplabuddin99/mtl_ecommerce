@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class EcomSlider extends Model
 {
     use HasFactory;
+
+    protected $table = 'ecom_sliders';
 }
