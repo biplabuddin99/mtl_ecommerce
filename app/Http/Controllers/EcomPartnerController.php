@@ -39,6 +39,14 @@ class EcomPartnerController extends Controller
     public function store(Request $request)
     {
         try{
+            $notification = array(
+                'message' => 'Successfully Created',
+                'alert-type' => 'success'
+            );
+            $errornotification = array(
+                'message' => 'Please try again',
+                'alert-type' => 'error'
+            );
             $partner= new Ecom_partner;
             $partner->title=$request->title;
             $partner->link=$request->link;
@@ -48,12 +56,12 @@ class EcomPartnerController extends Controller
                 $partner->logo=$imageName;
 
             if($partner->save())
-                return redirect()->route('partner.index');
+                return redirect()->route('partner.index')->with($notification);
             else
-            return redirect()->route('partner.create');
+            return redirect()->route('partner.create')->with($errornotification);
         }catch(Exception $e){
             dd($e);
-            return redirect()->route('partner.create');
+            return redirect()->route('partner.create')->with($errornotification);
         }
     }
 
